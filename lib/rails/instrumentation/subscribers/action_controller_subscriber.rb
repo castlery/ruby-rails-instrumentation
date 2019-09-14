@@ -110,9 +110,8 @@ module Rails
             tags.each do |key, value|
               ::Rails::Instrumentation.tracer.active_span.set_tag(key, value)
             end
-          else
-            Utils.trace_notification(event: event, tags: tags)
           end
+          Utils.trace_notification(event: event, tags: tags)
         end
 
         def send_file(event)
